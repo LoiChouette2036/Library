@@ -54,17 +54,48 @@ function displayBooks(myLibrary){
 const dialog = document.querySelector("dialog");
 const closeButton = document.querySelector("dialog button");
 const btn = document.querySelector("#add-button");
+let increment = 0;
 
 btn.addEventListener("click", () => {
     dialog.showModal();
+    document.getElementById('user-input').addEventListener('submit', function(event){
+        event.preventDefault();
+    
+        //get the values from the form inputs
+        let title = document.getElementById('title').value;
+        let author = document.getElementById('author').value;
+        let pages = document.getElementById('pages').value;
+        let readStatus = document.querySelector('input[name="read-status"]:checked').value;
+    
+        //Create a new book
+        //let nameBook = "book"+increment;
+        //increment ++;
+        //console.log(nameBook);
+        //console.log(increment);
+        let book = new Book (title,author,pages,readStatus);
+         
+        //Put inside the Array
+        myLibrary.push(book);
+        displayBooks(myLibrary);
+
+        // Reset form and close dialog
+        this.reset()
+        dialog.close();
+    });
 });
 
+
+
 closeButton.addEventListener("click", () => {
-    dialog.close();
+   dialog.close();
 })
 
 
 ///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 function addBookTolibrary(userTitle, userAuthor, userPages,userRead){
     const book = new Book(userTitle, userAuthor,userPages,userRead);
@@ -75,18 +106,18 @@ function addBookTolibrary(userTitle, userAuthor, userPages,userRead){
 ////////////////////////////////////////////////////////////////////////////////
 
 //test of the constructor 
-var book1 = new Book("1984", "George Orwell", 328, "not read");
-var book2 = new Book("Le Petit Prince", "Antoine de Saint-Exupéry", 96, "read");
-var book3 = new Book("To Kill a Mockingbird", "Harper Lee", 281, "read");
-var book4 = new Book("Pride and Prejudice", "Jane Austen", 432, "not read");
-myLibrary.push(book1,book2,book3,book4);
-myLibrary.forEach((book)=> {
-    console.log(book.title);
-})
+//var book1 = new Book("1984", "George Orwell", 328, "not read");
+//var book2 = new Book("Le Petit Prince", "Antoine de Saint-Exupéry", 96, "read");
+//var book3 = new Book("To Kill a Mockingbird", "Harper Lee", 281, "read");
+//var book4 = new Book("Pride and Prejudice", "Jane Austen", 432, "not read");
+//myLibrary.push(book1,book2,book3,book4);
+//myLibrary.forEach((book)=> {
+//    console.log(book.title);
+//})
 
 //////////////////////////////////////////////////////////////////////////////////
 // Call the function to display books on page load
-document.addEventListener('DOMContentLoaded', () => {
-    displayBooks(myLibrary);
-});
+//document.addEventListener('DOMContentLoaded', () => {
+//    displayBooks(myLibrary);
+//});
 
