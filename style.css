@@ -12,6 +12,14 @@ body{
     color: black;
 }
 
+.book-container {
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Auto-fill columns */
+    gap: 16px; /* Add space between the cards */
+    justify-items: center; /* Center the items in each column */
+}
+
+
 /*CSS CARD*/
 .book-card {
     background-color: yellow;

@@ -15,7 +15,7 @@ function Book (title,author,pages,read) {
 
 function displayBooks(myLibrary){
     // selects the #container div
-    const container = document.querySelector('.book-container');
+    const container = document.querySelector('.book-container'); //important ! select the class !!
     container.innerHTML = ''; // Clear any existing content
 
     myLibrary.forEach(book => {
