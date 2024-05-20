@@ -11,11 +11,15 @@ function Book (title,author,pages,read) {
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////////
 
-displayBooks(myLibrary){
-
+function displayBooks(myLibrary){
+    const container = document.querySelector("table");
+    const card = document.createElement("div");
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////
 
 function addBookTolibrary(userTitle, userAuthor, userPages,userRead){
     const book = new Book(userTitle, userAuthor,userPages,userRead);
@@ -23,9 +27,18 @@ function addBookTolibrary(userTitle, userAuthor, userPages,userRead){
     displayBooks()
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 //test of the constructor 
-const book1 = new Book('empire of north','kawagaha mahito', 235, "not read");
-console.log(book1.info());
+var book1 = new Book("1984", "George Orwell", 328, "not read");
+var book2 = new Book("Le Petit Prince", "Antoine de Saint-Exupéry", 96, "read");
+var book3 = new Book("To Kill a Mockingbird", "Harper Lee", 281, "read");
+var book4 = new Book("Pride and Prejudice", "Jane Austen", 432, "not read");
+myLibrary.push(book1,book2,book3,book4);
+myLibrary.forEach((book)=> {
+    console.log(book.title);
+})
+
 
 
 
