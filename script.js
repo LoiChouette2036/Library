@@ -15,7 +15,8 @@ function Book (title,author,pages,read) {
 
 function displayBooks(myLibrary){
     // selects the #container div
-    const container = document.querySelector('book-container');
+    const container = document.querySelector('.book-container');
+    container.innerHTML = ''; // Clear any existing content
 
     myLibrary.forEach(book => {
         //create card element
@@ -29,7 +30,7 @@ function displayBooks(myLibrary){
 
         //Create and append author
         const author = document.createElement('p');
-        author.textContent = 'Author : ${book.author}';
+        author.textContent = 'Author: ${book.author}';
         card.appendChild(author);
 
         //Create and append pages
@@ -45,11 +46,8 @@ function displayBooks(myLibrary){
 
         //Append card to container
         container.appendChild(card);
-    })
-    
-
+    });  
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -71,7 +69,9 @@ myLibrary.forEach((book)=> {
     console.log(book.title);
 })
 
-
-
-
+//////////////////////////////////////////////////////////////////////////////////
+// Call the function to display books on page load
+document.addEventListener('DOMContentLoaded', () => {
+    displayBooks(myLibrary);
+});
 
