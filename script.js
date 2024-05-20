@@ -11,9 +11,22 @@ function Book (title,author,pages,read) {
     }
 }
 
+
+displayBooks(myLibrary){
+
+}
+
+
+function addBookTolibrary(userTitle, userAuthor, userPages,userRead){
+    const book = new Book(userTitle, userAuthor,userPages,userRead);
+    myLibrary.push(book);
+    displayBooks()
+}
+
 //test of the constructor 
 const book1 = new Book('empire of north','kawagaha mahito', 235, "not read");
 console.log(book1.info());
 
-function addBookTolibrary(){
-}
+
+
+
