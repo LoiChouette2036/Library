@@ -14,8 +14,40 @@ function Book (title,author,pages,read) {
 ////////////////////////////////////////////////////////////////////////////////////
 
 function displayBooks(myLibrary){
-    const container = document.querySelector("table");
-    const card = document.createElement("div");
+    // selects the #container div
+    const container = document.querySelector('book-container');
+
+    myLibrary.forEach(book => {
+        //create card element
+        const card = document.createElement('div');
+        card.className= 'book-card';
+
+        //Create and append title
+        const title = document.createElement('h3')
+        title.textContent = book.title;
+        card.appendChild(title);
+
+        //Create and append author
+        const author = document.createElement('p');
+        author.textContent = 'Author : ${book.author}';
+        card.appendChild(author);
+
+        //Create and append pages
+        const pages = document.createElement('p');
+        pages.textContent = 'Pages: ${book.pages}';
+        card.appendChild(pages);
+
+        //Create and append read
+        const read = document.createElement('p');
+        read.textContent = 'Status: ${book.read}';
+        card.appendChild(read);
+        
+
+        //Append card to container
+        container.appendChild(card);
+    })
+    
+
 }
 
 
