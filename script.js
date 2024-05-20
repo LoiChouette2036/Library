@@ -79,16 +79,10 @@ btn.addEventListener("click", () => {
         displayBooks(myLibrary);
 
         // Reset form and close dialog
-        this.reset()
+        this.reset()  //really important for not repeating the previous book
         dialog.close();
     });
 });
-
-
-
-closeButton.addEventListener("click", () => {
-   dialog.close();
-})
 
 
 ///////////////////////////////////////////////////////////////////////////////////
