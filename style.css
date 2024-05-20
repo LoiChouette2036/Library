@@ -8,8 +8,39 @@ body{
 }
 
 .upper-part {
-    background-color: gray;
-    color: black;
+    background-color: #D3D3D3;
+    color: black;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.upper-part h1{
+    font-size: 50px;
+}
+
+#add-button {
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: yellow; 
+    color: black;            
+    border: none;              /* No border */
+    padding: 10px 20px;        /* Padding to make the button larger */
+    text-align: center;        /* Centered text */
+    text-decoration: none;     /* No text decoration */
+    display: inline-block;     /* Allows the button to align properly */
+    font-size: 30px;           /* Font size */
+    margin: 4px 2px;           /* Margin around the button */
+    cursor: pointer;           /* Changes the cursor to a hand on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth animation for color change */
+    border-radius: 5px;        /* Rounded corners */
+}
+
+
+#add-button:hover {
+    background-color: #003366; /* Navy blue on hover */
+    color: #FFFFFF;            /* White text on hover */
 }
 
 .book-container {
@@ -41,6 +72,6 @@ body{
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
-* {
+/* {
     border: red 1px solid;
 }

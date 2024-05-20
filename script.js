@@ -30,17 +30,17 @@ function displayBooks(myLibrary){
 
         //Create and append author
         const author = document.createElement('p');
-        author.textContent = 'Author: ${book.author}';
+        author.textContent = 'Author: '+book.author;
         card.appendChild(author);
 
         //Create and append pages
         const pages = document.createElement('p');
-        pages.textContent = 'Pages: ${book.pages}';
+        pages.textContent = 'Pages: '+ book.pages;
         card.appendChild(pages);
 
         //Create and append read
         const read = document.createElement('p');
-        read.textContent = 'Status: ${book.read}';
+        read.textContent = 'Status: '+book.read;
         card.appendChild(read);
         
 
