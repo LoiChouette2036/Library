@@ -54,6 +54,7 @@ function displayBooks(myLibrary){
 const dialog = document.querySelector("dialog");
 const closeButton = document.querySelector("dialog button");
 const btn = document.querySelector("#add-button");
+
 btn.addEventListener("click", () => {
     dialog.showModal();
 });
