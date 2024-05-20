@@ -51,6 +51,14 @@ function displayBooks(myLibrary){
 
 //////////////////////////////////////////////////////////////////////////////////
 
+const btn = document.querySelector("#add-button");
+btn.addEventListener("click", () => {
+    
+});
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
 function addBookTolibrary(userTitle, userAuthor, userPages,userRead){
     const book = new Book(userTitle, userAuthor,userPages,userRead);
     myLibrary.push(book);
