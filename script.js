@@ -56,32 +56,29 @@ const closeButton = document.querySelector("dialog button");
 const btn = document.querySelector("#add-button");
 let increment = 0;
 
+document.getElementById('user-input').addEventListener('submit', function(event){
+    event.preventDefault();
+    
+    //get the values from the form inputs
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
+    let readStatus = document.querySelector('input[name="read-status"]:checked').value;
+    
+    let book = new Book (title,author,pages,readStatus);
+         
+    //Put inside the Array
+    myLibrary.push(book);
+    displayBooks(myLibrary);
+
+    // Reset form and close dialog
+    //readStatus = ''; //to not add something on readStatus;
+    this.reset();  //really important for not repeating the previous book
+    dialog.close();
+});
+
 btn.addEventListener("click", () => {
     dialog.showModal();
-    document.getElementById('user-input').addEventListener('submit', function(event){
-        event.preventDefault();
-    
-        //get the values from the form inputs
-        let title = document.getElementById('title').value;
-        let author = document.getElementById('author').value;
-        let pages = document.getElementById('pages').value;
-        let readStatus = document.querySelector('input[name="read-status"]:checked').value;
-    
-        //Create a new book
-        //let nameBook = "book"+increment;
-        //increment ++;
-        //console.log(nameBook);
-        //console.log(increment);
-        let book = new Book (title,author,pages,readStatus);
-         
-        //Put inside the Array
-        myLibrary.push(book);
-        displayBooks(myLibrary);
-
-        // Reset form and close dialog
-        this.reset()  //really important for not repeating the previous book
-        dialog.close();
-    });
 });
 
 
