@@ -18,7 +18,11 @@ function displayBooks(myLibrary){
     const container = document.querySelector('.book-container'); //important ! select the class !!
     container.innerHTML = ''; // Clear any existing content
 
-    myLibrary.forEach(book => {
+    //(book, index) => { ... }: This is the arrow function passed as the callback to forEach.
+    //book: Represents the current element (a Book object) being processed in the myLibrary array.
+    //index: Represents the index of the current element in the myLibrary array.
+
+    myLibrary.forEach((book,index) => {
         //create card element
         const card = document.createElement('div');
         card.className= 'book-card';
@@ -47,6 +51,7 @@ function displayBooks(myLibrary){
         const deleteButton = document.createElement('button');
         deleteButton.className ='deleteButton';
         deleteButton.textContent = 'Delete';
+        deleteButton.setAttribute('data-index', index); // Add data-index attribute to identify the book (the index in the array )and to remove from the array later easily
         card.appendChild(deleteButton);
         
 
@@ -88,9 +93,18 @@ btn.addEventListener("click", () => {
 
 
 ///////////////////////////////////////////////////////////////////////////////////
+//the element you're trying to select does not exist in the DOM at the time your script is being executed. 
+//In my case, the deleteBtn element is likely not found because there are no .deleteButton elements when the script runs for the first time.
 
-const deleteBtn = document.querySelector(".deleteButton");
-deleteBtn.addEventListener('click',function(event){
-    alert('test if it s working');
-})
+//Since the delete buttons are created dynamically when books are added to the library, you need to delegate the event listener for the delete buttons. 
+//Attach the event listener to the book-container and use event delegation to listen for clicks on delete buttons.
+//Ensure that the displayBooks function includes the correct logic to handle the delete action.
 
+document.querySelector('.book-container').addEventListener('click', function (event) {
+    //event.target: Refers to the clicked element.
+    if (event.target.classList.contains('deleteButton')) {      //event.target.classList.contains('deleteButton'): Checks if the clicked element is a delete button.
+        const index = event.target.getAttribute('data-index');  //event.target.getAttribute('data-index'): Retrieves the value of the data-index attribute from the clicked delete button.
+        myLibrary.splice(index, 1); //myLibrary.splice(index, 1): Removes the book at the specified index from the myLibrary array.
+        displayBooks(myLibrary);  //displayBooks(myLibrary): Updates the displayed list of books.
+   }
+});
