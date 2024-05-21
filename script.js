@@ -47,6 +47,18 @@ function displayBooks(myLibrary){
         read.textContent = 'Status: '+book.read;
         card.appendChild(read);
 
+        //create a div to put a button and a img
+        const divForButton = document.createElement('div');
+        divForButton.className = 'divForButton';
+        card.appendChild(divForButton);
+
+        //create a a modify read-status button
+        const modifyButton = document.createElement('button');
+        modifyButton.className = 'modifyButton';
+        modifyButton.textContent = "Modify Read-Status";
+        modifyButton.setAttribute('data-index',index);
+        divForButton.appendChild(modifyButton);
+
         //create a delete button
         const deleteButton = document.createElement('button');
         deleteButton.className ='deleteButton';
@@ -57,14 +69,8 @@ function displayBooks(myLibrary){
         // Append the icon to the button
         deleteButton.appendChild(icon);
         deleteButton.setAttribute('data-index', index); // Add data-index attribute to identify the book (the index in the array )and to remove from the array later easily
-        card.appendChild(deleteButton);
+        divForButton.appendChild(deleteButton);
 
-        //create a a modify read-status button
-        const modifyButton = document.createElement('button');
-        modifyButton.className = 'modifyButton';
-        modifyButton.textContent = "Modify Read-Status";
-        modifyButton.setAttribute('data-index',index);
-        card.appendChild(modifyButton);
         
 
         //Append card to container
