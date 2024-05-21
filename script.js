@@ -53,6 +53,13 @@ function displayBooks(myLibrary){
         deleteButton.textContent = 'Delete';
         deleteButton.setAttribute('data-index', index); // Add data-index attribute to identify the book (the index in the array )and to remove from the array later easily
         card.appendChild(deleteButton);
+
+        //create a a modify read-status button
+        const modifyButton = document.createElement('button');
+        modifyButton.className = 'modifyButton';
+        modifyButton.textContent = "Modify Read-Status";
+        modifyButton.setAttribute('data-index',index);
+        card.appendChild(modifyButton);
         
 
         //Append card to container
@@ -93,6 +100,7 @@ btn.addEventListener("click", () => {
 
 
 ///////////////////////////////////////////////////////////////////////////////////
+
 //the element you're trying to select does not exist in the DOM at the time your script is being executed. 
 //In my case, the deleteBtn element is likely not found because there are no .deleteButton elements when the script runs for the first time.
 
@@ -106,5 +114,19 @@ document.querySelector('.book-container').addEventListener('click', function (ev
         const index = event.target.getAttribute('data-index');  //event.target.getAttribute('data-index'): Retrieves the value of the data-index attribute from the clicked delete button.
         myLibrary.splice(index, 1); //myLibrary.splice(index, 1): Removes the book at the specified index from the myLibrary array.
         displayBooks(myLibrary);  //displayBooks(myLibrary): Updates the displayed list of books.
-   }
+   } 
+   else if(event.target.classList.contains('modifyButton')) {
+    const index = event.target.getAttribute('data-index');
+    myLibrary[index].read = myLibrary[index].read === 'read' ? 'not_read' : 'read'; // if statement but shorten
+    displayBooks(myLibrary);
+    } 
+    else {
+        alert('problem occured');
+    }
+    
 });
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
