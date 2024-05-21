@@ -106,8 +106,10 @@ document.getElementById('user-input').addEventListener('submit', function(event)
 });
 
 btn.addEventListener("click", () => {
-    dialog.showModal();
+   dialog.showModal();
 });
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////
