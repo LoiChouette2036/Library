@@ -50,7 +50,12 @@ function displayBooks(myLibrary){
         //create a delete button
         const deleteButton = document.createElement('button');
         deleteButton.className ='deleteButton';
-        deleteButton.textContent = 'Delete';
+        //deleteButton.textContent = 'Delete';
+         // Create the icon element
+        var icon = document.createElement('i');
+        icon.className = 'fas fa-trash-alt';
+        // Append the icon to the button
+        deleteButton.appendChild(icon);
         deleteButton.setAttribute('data-index', index); // Add data-index attribute to identify the book (the index in the array )and to remove from the array later easily
         card.appendChild(deleteButton);
 
@@ -110,7 +115,9 @@ btn.addEventListener("click", () => {
 
 document.querySelector('.book-container').addEventListener('click', function (event) {
     //event.target: Refers to the clicked element.
-    if (event.target.classList.contains('deleteButton')) {      //event.target.classList.contains('deleteButton'): Checks if the clicked element is a delete button.
+    //event.target.classList.contains('deleteButton'): Checks if the clicked element is a delete button.
+    //event.target.parentElement.classList.contains('deleteButton') allow to select the 'i' element
+    if (event.target.classList.contains('deleteButton') || event.target.parentElement.classList.contains('deleteButton')) {     
         const index = event.target.getAttribute('data-index');  //event.target.getAttribute('data-index'): Retrieves the value of the data-index attribute from the clicked delete button.
         myLibrary.splice(index, 1); //myLibrary.splice(index, 1): Removes the book at the specified index from the myLibrary array.
         displayBooks(myLibrary);  //displayBooks(myLibrary): Updates the displayed list of books.
@@ -119,11 +126,7 @@ document.querySelector('.book-container').addEventListener('click', function (ev
     const index = event.target.getAttribute('data-index');
     myLibrary[index].read = myLibrary[index].read === 'read' ? 'not_read' : 'read'; // if statement but shorten
     displayBooks(myLibrary);
-    } 
-    else {
-        alert('problem occured');
-    }
-    
+    }   
 });
 
 
