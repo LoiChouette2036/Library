@@ -9,7 +9,7 @@ body{
 
 /*****************************************************************************/
 .upper-part {
-    background-color: #D3D3D3;
+    background-color: white;
     color: black;  
     display: flex;
     align-items: center;
